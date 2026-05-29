@@ -9,10 +9,10 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 def get_credentials():
     creds = Credentials(
         token=None,
-        refresh_token=os.environ["YT_REFRESH_TOKEN"],
+        refresh_token="1//0gDJp0Tjt895fCgYIARAAGBASNwF-L9IrvWTBSl3b_nC5Z8FPzxagUw-m2cpxIPRCyTx8IWIipW250lCmi3cGvxUnxeJMjWheDwc",
         token_uri="https://oauth2.googleapis.com/token",
-        client_id=os.environ["YT_CLIENT_ID"],
-        client_secret=os.environ["YT_CLIENT_SECRET"],
+        client_id="437139788025-52c2b1oobhr5s5vvaouh62jchsj5fi1h.apps.googleusercontent.com",
+        client_secret="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",
         scopes=SCOPES,
     )
     return creds
