@@ -13,15 +13,47 @@ VOICES = {
 }
 
 async def synthesize(text, voice, output_path):
-    communicate = edge_tts.Communicate(text, voice, rate="+5%", pitch="+0Hz")
+    communicate = edge_tts.Communicate(text, voice, rate="-10%", pitch="+0Hz")
     await communicate.save(output_path)
+
+def fix_pronunciation(text):
+    text = text.replace("atoms", "AY-toms")
+    text = text.replace("Atoms", "AY-toms")
+    text = text.replace("atom", "AY-tom")
+    text = text.replace("Atom", "AY-tom")
+    text = text.replace("nucleus", "NEW-klee-us")
+    text = text.replace("Nucleus", "NEW-klee-us")
+    text = text.replace("quantum", "KWON-tum")
+    text = text.replace("Quantum", "KWON-tum")
+    text = text.replace("neuron", "NEW-ron")
+    text = text.replace("neurons", "NEW-rons")
+    text = text.replace("Neuron", "NEW-ron")
+    text = text.replace("Neurons", "NEW-rons")
+    text = text.replace("psychology", "sy-KOL-oh-jee")
+    text = text.replace("Psychology", "sy-KOL-oh-jee")
+    text = text.replace("psychological", "sy-koh-LOJ-ih-kul")
+    text = text.replace("Psychological", "sy-koh-LOJ-ih-kul")
+    text = text.replace("photon", "FOH-ton")
+    text = text.replace("photons", "FOH-tons")
+    text = text.replace("Photon", "FOH-ton")
+    text = text.replace("Photons", "FOH-tons")
+    text = text.replace("neuroscience", "NEW-roh-sy-ence")
+    text = text.replace("Neuroscience", "NEW-roh-sy-ence")
+    text = text.replace("synapse", "SY-naps")
+    text = text.replace("Synapse", "SY-naps")
+    text = text.replace("dopamine", "DOH-pah-meen")
+    text = text.replace("Dopamine", "DOH-pah-meen")
+    text = text.replace("serotonin", "ser-oh-TOH-nin")
+    text = text.replace("Serotonin", "ser-oh-TOH-nin")
+    return text
 
 def generate_tts(script_path="script.json", output_path="narration.mp3"):
     with open(script_path) as f:
         script = json.load(f)
     voice = VOICES.get(script.get("color_theme", "deep_space"), "en-US-GuyNeural")
     all_lines = [script["hook"]] + script["lines"]
-    full_text = " ".join(all_lines)
+    full_text = " ... ".join(all_lines)
+    full_text = fix_pronunciation(full_text)
     print("[INFO] Synthesizing with voice: " + voice)
     asyncio.run(synthesize(full_text, voice, output_path))
     print("[OK] Narration saved: " + output_path)
