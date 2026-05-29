@@ -42,7 +42,7 @@ COLOR_THEMES = [
 ]
 
 def generate_script():
-    api_key = "paste_your_groq_key_here"
+    api_key = "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"
     client = Groq(api_key=api_key)
     niche = random.choice(NICHES)
     background = random.choice(BACKGROUNDS)
