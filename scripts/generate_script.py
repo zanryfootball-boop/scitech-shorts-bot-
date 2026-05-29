@@ -5,56 +5,36 @@ from datetime import datetime
 from groq import Groq
 
 NICHES = [
-    "mind blowing psychology facts",
-    "dark psychology facts nobody tells you",
-    "science facts that sound completely fake",
-    "human brain facts that will shock you",
-    "quantum physics explained simply",
-    "psychology of human behavior",
-    "space science facts that blow your mind",
-    "science behind human emotions",
-    "psychology tricks used on you daily",
-    "biology facts about the human body",
-    "science facts about the universe",
-    "psychology of success and mindset",
-    "neuroscience facts about the brain",
-    "science facts about black holes",
-    "psychology behind social media addiction",
+    "motivational football quotes",
+    "football legends motivational speeches",
+    "Ronaldo motivational story",
+    "Messi never give up story",
+    "football motivation for life",
+    "football champions mindset",
+    "football dedication and hardwork",
+    "football dreams and goals",
+    "football passion and hunger",
+    "football greatness quotes",
 ]
-
 BACKGROUNDS = [
-    "neural_network",
-    "space_cosmos",
-    "dna_helix",
-    "atom_particles",
-    "brain_waves",
-    "galaxy_spiral",
-    "molecule_bonds",
-    "electric_pulses",
+    "stadium_lights",
+    "football_pitch",
+    "crowd_energy",
+    "goal_celebration",
+    "training_ground",
+    "trophy_glory",
+    "player_silhouette",
+    "ball_particles",
 ]
 
-COLOR_THEMES = [
-    "deep_space",
-    "neural_blue",
-    "bio_green",
-    "cosmic_purple",
-    "electric_cyan",
-]
 
-HASHTAGS = [
-    "#psychology #mindblow",
-    "#science #facts",
-    "#brainFacts #psychology",
-    "#spaceFacts #science",
-    "#quantumPhysics #science",
-    "#humanBrain #facts",
-    "#darkPsychology #mindset",
-    "#scienceFacts #amazing",
-    "#psychologyFacts #viral",
-    "#universeFacts #space",
-    "#neuroscience #brain",
-    "#mindBlowing #facts",
-]
+COLOR_THEMES = {
+    "champions_gold":   {"bg": (10, 8, 0),   "accent": (255, 200, 0),   "text": (255, 255, 255), "sub": (255, 220, 80)},
+    "pitch_green":      {"bg": (0, 20, 0),   "accent": (0, 220, 80),    "text": (255, 255, 255), "sub": (100, 255, 150)},
+    "stadium_night":    {"bg": (5, 5, 20),   "accent": (255, 255, 255), "text": (255, 255, 255), "sub": (200, 200, 255)},
+    "fire_red":         {"bg": (20, 0, 0),   "accent": (255, 50, 0),    "text": (255, 255, 255), "sub": (255, 120, 60)},
+    "royal_blue":       {"bg": (0, 5, 30),   "accent": (0, 100, 255),   "text": (255, 255, 255), "sub": (100, 180, 255)},
+}
 
 def generate_script():
     api_key = "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"
@@ -62,7 +42,6 @@ def generate_script():
     niche = random.choice(NICHES)
     background = random.choice(BACKGROUNDS)
     color_theme = random.choice(COLOR_THEMES)
-    hashtags = random.choice(HASHTAGS)
     slot = "morning" if datetime.now().hour < 12 else "evening"
     prompt = (
         "You are a viral YouTube Shorts script writer specializing in science and psychology facts. "
