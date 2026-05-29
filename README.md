@@ -33,3 +33,4 @@ Posts 2 AI-generated Science & Psychology Shorts daily at 8:00 AM and 6:00 PM IS
 ## Schedule
 - 8:00 AM IST daily
 - 6:00 PM IST daily
+ 
