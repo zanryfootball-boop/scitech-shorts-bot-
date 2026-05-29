@@ -41,12 +41,28 @@ COLOR_THEMES = [
     "electric_cyan",
 ]
 
+HASHTAGS = [
+    "#psychology #mindblow",
+    "#science #facts",
+    "#brainFacts #psychology",
+    "#spaceFacts #science",
+    "#quantumPhysics #science",
+    "#humanBrain #facts",
+    "#darkPsychology #mindset",
+    "#scienceFacts #amazing",
+    "#psychologyFacts #viral",
+    "#universeFacts #space",
+    "#neuroscience #brain",
+    "#mindBlowing #facts",
+]
+
 def generate_script():
-    api_key = "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"
+    api_key = "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"
     client = Groq(api_key=api_key)
     niche = random.choice(NICHES)
     background = random.choice(BACKGROUNDS)
     color_theme = random.choice(COLOR_THEMES)
+    hashtags = random.choice(HASHTAGS)
     slot = "morning" if datetime.now().hour < 12 else "evening"
     prompt = (
         "You are a viral YouTube Shorts script writer specializing in science and psychology facts. "
@@ -61,8 +77,8 @@ def generate_script():
         "Return ONLY valid JSON with this exact structure:\n"
         "{\n"
         '  "title": "YouTube title (max 70 chars, curiosity-driven)",\n'
-        '  "description": "YouTube description (2-3 sentences + hashtags like #psychology #science #facts #shorts)",\n'
-        '  "tags": ["psychology", "science", "facts", "shorts", "mindblown"],\n'
+        '  "description": "YouTube description (2-3 sentences) end with these exact hashtags: ' + hashtags + ' #shorts",\n'
+        '  "tags": ["shorts", "youtubeshorts"],\n'
         '  "hook": "First 3 seconds hook line (shocking, makes people stop scrolling)",\n'
         '  "lines": [\n'
         '    "Line 1 (short, shocking fact)",\n'
